@@ -1,29 +1,13 @@
-Uniform Coins
--------------
+# Uniform Coins
 
-This is a simple environment to demonstrate creation of a
-[gymnasium](https://gymnasium.farama.org/) environment that
-has a model to support classic search as well as being used
-for reinforcement learning (the primary purpose of most 
-gymnasium environments).
+## Background
+This is the final project of CS 4300 in which we extend a [Gymnasium](https://gymnasium.farama.org/)  environment to create our own problem and solution.
+ This project sets up an NxN grid with valid tiles containing one of {/, \, |, -} where the agent can rotate the tile, or move in the direction of the current tile. For example, if the agent is on a tile with a '|', then it can move to, and rotate, the tiles above and below it's current position.
 
-Farama has a [turtorial](https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation/)
-on creating your own custom environment. Those instructions
-were used, along with the requirements of having an 
-environment model that can be plugged into classical
-tree search.
+## Setup
+First run `make pip-install` to install the dependencies for the project. Then run `make install-car-nav` to install the local Python package. That's it!
 
-To be sure that all pip prerequisites are installed first,
-use the `Makefile` in [prerequisites](prerequisites/).
-
-The gymnasium environment is contained completely in [uniform-coins](uniform-coins/). 
-Use the `Makefile` in that directory to install the module in your local
-pip. Note that this does not copy the module, it sets a link to this
-location. This is convenient for making updates after installing it.
-
-[demo-agents](demo-agents/) has a random agent and a iterative deepening
-search agent, to demonstrate the use of the environment and the model
-side-by-side in running the environment and searching for solutions.
-
+## Usage
+Within the `demo-agents` folder there are some different searches and examples on how to use it. The `benchmark.py` file would be the best place to start by running `python3 benchmark.py -h` to see the possible options that can be run
 
 
