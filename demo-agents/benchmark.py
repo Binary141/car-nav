@@ -9,6 +9,7 @@ import os
 import sys
 
 import bfs
+import dfs
 import astar
 import greedy
 
@@ -78,6 +79,7 @@ if __name__ == "__main__":
     parser.add_argument('--astar', action='store_true', help='enable ASTAR search')
     parser.add_argument('--greedy', action='store_true', help='enable GREEDY search')
     parser.add_argument('--bfs', action='store_true', help='enable BFS search')
+    parser.add_argument('--dls', action='store_true', help='enable DLS search')
     parser.add_argument('--debug', action='store_true', help='enable debug')
 
     args = parser.parse_args()
@@ -98,5 +100,7 @@ if __name__ == "__main__":
         searches.append(astar.ASTAR)
     if args.bfs:
         searches.append(bfs.BFS)
+    if args.dfs:
+        searches.append(dfs.DLS)
 
     main(iterations=args.i, row_count=args.r, column_count=args.c, searches=searches, debug=args.debug)

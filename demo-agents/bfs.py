@@ -35,8 +35,8 @@ def main():
 
     render_mode = "ansi"
 
-    row_count = 7
-    column_count = 7
+    row_count = 5
+    column_count = 5
     env = gym.make('car_navigation/CarNavigation-v0', render_mode=render_mode, row_count=row_count, column_count=column_count)
     observation, info = env.reset()
     state = car_navigation.CarNavigationState(row_count=row_count, column_count=column_count)
