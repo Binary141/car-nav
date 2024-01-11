@@ -1,29 +1,44 @@
-Uniform Coins
--------------
+Uniform Coins Environment
+-------------------------
 
-This is a simple environment to demonstrate creation of a
-[gymnasium](https://gymnasium.farama.org/) environment that
-has a model to support classic search as well as being used
-for reinforcement learning (the primary purpose of most 
-gymnasium environments).
+# Description
 
-Farama has a [turtorial](https://gymnasium.farama.org/tutorials/gymnasium_basics/environment_creation/)
-on creating your own custom environment. Those instructions
-were used, along with the requirements of having an 
-environment model that can be plugged into classical
-tree search.
+The state is a collection of `N` coins that are either 
+heads or tails. The goal is to turn over coins until 
+all coins are the same.
 
-To be sure that all pip prerequisites are installed first,
-use the `Makefile` in [prerequisites](prerequisites/).
+# Observation Space
 
-The gymnasium environment is contained completely in [uniform-coins](uniform-coins/). 
-Use the `Makefile` in that directory to install the module in your local
-pip. Note that this does not copy the module, it sets a link to this
-location. This is convenient for making updates after installing it.
+An observation is a numpy.array of `int8`, and shape = (N,).
+Each entry is either `0` or `1`, representing heads or tails
+respectively.
 
-[demo-agents](demo-agents/) has a random agent and a iterative deepening
-search agent, to demonstrate the use of the environment and the model
-side-by-side in running the environment and searching for solutions.
+# Action Space
 
+An action is an integer representing the index in the state
+of which coin to turn over.
 
+# Starting State
+
+The starting state is a randomly selected state for each of the `N` coins.
+
+# Rewards
+
+The base cost of turning a coin is 1 unit. However,
+the heads side of a coin has slightly more mass than 
+the tails side. So turning the coin from heads to tails
+recovers a little potential energy. Turning from tails to
+heads requires storing a small amount of energy.
+
+Turning from heads to tails has a total reward of -0.9.
+Turning from tails to heads has a total reward of -1.1.
+
+# Episode End
+
+The episode terminates when all of the coins have the same
+side exposed. Either all heads or all tails. 
+
+The episode will truncate after 50 steps. This limit can
+be overridden with the `max_episode_steps` parameter to 
+`gymnasium.make()`.
 
