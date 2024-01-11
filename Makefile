@@ -5,5 +5,8 @@ pip-install:
 	python3 -m pip install -U distro-info
 	python3 -m pip install -U python-debian
 	python3 -m pip install -U gymnasium
+	python3 -m pip install -r requirements.txt
 
+install-car-nav:
+	pip install -e ./car-navigation
 
