@@ -10,4 +10,4 @@ First run `make pip-install` to install the dependencies for the project. Then r
 ## Usage
 Within the `demo-agents` folder there are some different searches and examples on how to use it. The `benchmark.py` file would be the best place to start by running `python3 benchmark.py -h` to see the possible options that can be run
 
-
+![Example output](https://github.com/Binary141/car-nav/blob/main/sample_astar_output.png)
